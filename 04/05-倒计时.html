@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .countdown {
+        width: 240px;
+        height: 305px;
+        text-align: center;
+        line-height: 1;
+        color: #fff;
+        background-color: brown;
+        /* background-size: 240px; */
+        /* float: left; */
+        overflow: hidden;
+      }
+
+      .countdown .next {
+        font-size: 16px;
+        margin: 25px 0 14px;
+      }
+
+      .countdown .title {
+        font-size: 33px;
+      }
+
+      .countdown .tips {
+        margin-top: 80px;
+        font-size: 23px;
+      }
+
+      .countdown small {
+        font-size: 17px;
+      }
+
+      .countdown .clock {
+        width: 142px;
+        margin: 18px auto 0;
+        overflow: hidden;
+      }
+
+      .countdown .clock span,
+      .countdown .clock i {
+        display: block;
+        text-align: center;
+        line-height: 34px;
+        font-size: 23px;
+        float: left;
+      }
+
+      .countdown .clock span {
+        width: 34px;
+        height: 34px;
+        border-radius: 2px;
+        background-color: #303430;
+      }
+
+      .countdown .clock i {
+        width: 20px;
+        font-style: normal;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="countdown">
+      <p class="next">
+        今天是 <span class="one">1</span>年 <span class="two">2</span>月
+        <span class="three">3</span>日
+      </p>
+      <p class="title">下班倒计时</p>
+      <p class="clock">
+        <span id="hour">00</span>
+        <i>:</i>
+        <span id="minutes">25</span>
+        <i>:</i>
+        <span id="scond">20</span>
+      </p>
+      <p class="tips">上学倒计时</p>
+    </div>
+    <script>
+      // 函数封装
+      function getcounttime() {
+        const now = +new Date();
+        const year = new Date().getFullYear();
+        const month = new Date().getMonth() + 1;
+        const day = new Date().getDate();
+        const one = document.querySelector(`.next .one`);
+        const two = document.querySelector(`.next .two`);
+        const three = document.querySelector(`.next .three`);
+        one.innerHTML = year;
+        two.innerHTML = month;
+        three.innerHTML = day;
+        // 过去的时间
+        const last = +new Date("2025-9-1 8:00:00");
+        // console.log(now, last);
+        // 相差的秒数字
+        const count = (last - now) / 1000;
+        // console.log(count);
+        let d = parseInt(count / 60 / 60 / 24);
+        let h = parseInt((count / 60 / 60) % 24);
+        h = h < 10 ? "0" + h : h;
+        let m = parseInt((count / 60) % 60);
+        m = m < 10 ? "0" + m : m;
+        let s = parseInt(count % 60);
+        s = s < 10 ? "0" + s : s;
+        // console.log(d, h, m, s);
+        const hour = document.querySelector(`.clock #hour`);
+        const min = document.querySelector(`.clock #minutes`);
+        const sc = document.querySelector(`.clock #scond`);
+        hour.innerHTML = h;
+        min.innerHTML = m;
+        sc.innerHTML = s;
+      }
+      getcounttime();
+      setInterval(getcounttime, 1000);
+      // 得到当前的时间戳
+    </script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        margin: 100px auto;
+        width: 800px;
+        height: 300px;
+        background-color: bisque;
+      }
+      .box h3 {
+        text-align: center;
+      }
+      .box2 {
+        display: flex;
+        margin-top: 50px;
+        margin-left: 30%;
+      }
+      .box2 span {
+        margin-left: 20px;
+        color: red;
+      }
+      .box .bottom .b1,
+      .box .bottom .b2 {
+        margin-top: 50px;
+        padding: 2px 50px;
+      }
+      .box .bottom {
+        margin-left: 240px;
+      }
+      .box .bottom .b1 {
+        margin-right: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h3>随机点名</h3>
+      <div class="box2">
+        <h4>名字是：</h4>
+        <span>这里显示姓名</span>
+      </div>
+      <div class="bottom">
+        <button class="b1">开始</button>
+        <button class="b2">结束</button>
+      </div>
+    </div>
+    <script>
+      const person = ["马超", "关羽", "刘备", "张飞", "司马懿", "曹操"];
+      const choice = document.querySelector(`.box .box2 span`);
+      const start = document.querySelector(`.bottom .b1`);
+      let timeid = 0;
+      let random = 0;
+      // 开始按键
+      start.addEventListener(`click`, function () {
+        // 计时事件
+        timeid = setInterval(function () {
+          random = Math.floor(Math.random() * person.length);
+          choice.innerHTML = person[random];
+        }, 35);
+        if (person.length === 1) {
+          start.disabled = true;
+          end.disabled = true;
+        }
+      });
+      // 结束按键
+      const end = document.querySelector(`.bottom .b2`);
+      end.addEventListener(`click`, function () {
+        clearInterval(timeid);
+        person.splice(random, 1);
+        // console.log(person);
+      });
+    </script>
+  </body>
+</html>

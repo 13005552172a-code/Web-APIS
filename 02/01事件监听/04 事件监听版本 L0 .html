@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>确定</button>
+    <script>
+      // 会覆盖
+      const b = document.querySelector(`button`);
+      b.onclick = function () {
+        alert("你好");
+      };
+      b.onclick = function () {
+        alert("你好2");
+      };
+    </script>
+  </body>
+</html>

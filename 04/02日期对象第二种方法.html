@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #f3f3f3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      const box = document.querySelector(`.box`);
+      const data = new Date();
+      box.innerHTML = data.toLocaleString();
+      setInterval(function () {
+        // 要不断重复
+        const data = new Date();
+        box.innerHTML = data.toLocaleString();
+      }, 1000);
+    </script>
+  </body>
+</html>

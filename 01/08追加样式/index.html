@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        font-size: 20px;
+      }
+      .sty {
+        background-color: #ccc;
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box sty">你好</div>
+    <script>
+      const box = document.querySelector(`.box`);
+      // // 追加
+      // box.classList.add(`sty`);
+      // // 移除
+      // box.classList.remove(`box`);
+      // 切换 有就删除 没有就追加
+      box.classList.toggle(`sty`);
+    </script>
+  </body>
+</html>

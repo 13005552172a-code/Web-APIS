@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>第1个孩子</li>
+      <li>第2个孩子</li>
+      <li>第3个孩子</li>
+      <li>第4个孩子</li>
+      <li>第5个孩子</li>
+      <p>nihao</p>
+    </ul>
+    <script>
+      const fa = document.querySelector(`ul`);
+      fa.addEventListener(`click`, function (e) {
+        // console.dir(e.target);
+
+        if (e.target.tagName === `LI`) {
+          e.target.style.color = `red`;
+        }
+      });
+    </script>
+  </body>
+</html>

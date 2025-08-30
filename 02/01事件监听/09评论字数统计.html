@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        position: relative;
+        width: 300px;
+        height: 50px;
+        margin-left: 100px;
+        margin-top: 100px;
+        transition: all 0.3s;
+      }
+      input:focus {
+        width: 500px;
+      }
+      .add {
+        left: 550px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="请输入" />
+    <div class="add">0/100字</div>
+    <script>
+      const input = document.querySelector(`input`);
+      const add = document.querySelector(`.add`);
+      input.addEventListener(`input`, function () {
+        add.innerHTML = `${input.value.length}/100字`;
+      });
+    </script>
+  </body>
+</html>

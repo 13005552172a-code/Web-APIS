@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        display: block;
+        position: relative;
+        width: 600px;
+        height: 200px;
+        background-color: purple;
+        margin: 100px auto;
+        text-align: center;
+        line-height: 200px;
+      }
+      .box1 {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: wheat;
+        right: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      点击关闭
+      <div class="box1"></div>
+    </div>
+    <div class="box">
+      点击关闭
+      <div class="box1"></div>
+    </div>
+    <div class="box">
+      点击关闭
+      <div class="box1"></div>
+    </div>
+    <script>
+      const ten_ = document.querySelectorAll(`.box1`);
+      for (let i = 0; i < ten_.length; i++) {
+        ten_[i].addEventListener(`click`, function () {
+          this.parentNode.style.display = `none`;
+        });
+      }
+    </script>
+  </body>
+</html>
